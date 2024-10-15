@@ -23,5 +23,6 @@ int main()
         }
     }
     printf("Vowels:%d\n",vowel);
+    
     printf("Consonents:%d",consonent);
 }
