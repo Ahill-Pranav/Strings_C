@@ -6,7 +6,7 @@ int main()
     int flag=1;
     printf("Enter the input:");
     fgets(str, sizeof(str), stdin);
-    str[strcspn(str,"\n")]='\0';
+    str[strlen(str) - 1] = '\0'; // remove the newline character
     int start=0, end=strlen(str)-1;
     while(start<=end)
     {
