@@ -1,52 +1,55 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include<ctype.h>
+#define alpha_size 26 
 
-int main() {
-    char s[] = "astronomer";
-    char t[] = "moonstarer";
-    char m[strlen(s)+1];
-    int l = 0;
+int anagram_check(char *str1,char *str2)
+{
+    if (strlen(str1)!=strlen(str2))
+    {
+        return 0;
+    }
     
-    memset(m, '\0', strlen(s) + 1);
-    
-    char alphabets[] = "abcdefghijklmnopqrstuvwxyz";
-    bool valid = true;
-    
-    for (int i = 0; i < strlen(s); i++) {
-    	for (int j = 0; j < strlen(alphabets); j++) {
-    		if (s[i] != alphabets[j]) {
-    			valid = false;
-    			break;
-			}
-		}
-		if (valid == false) {
-			break;
-		}
-	}
-    
-    if (strlen(s) == strlen(t) && valid == true) {
-        for (int i = 0; i < strlen(s); i++) {
-            for (int j = 0; j < strlen(t); j++) {
-                if(s[i] == t[j]) {
-                    m[l] = t[j];
-                    l++;
-                    break;
-                }
-            }
+    int str1_count[alpha_size]={0};
+    int str2_count[alpha_size]={0};
+    for(int i=0;i<strlen(str1);i++)
+    {
+        char ch1 = tolower(str1[i]);
+        char ch2 = tolower(str2[i]);
+        if (isalpha(ch1)) {
+            str1_count[ch1 - 'a']++; // Increase count for corresponding character in str1
         }
-        if (strcmp(s, m) == 0) {
-        	printf("True");
-		}
-		else {
-			printf("False");
-		}
+
+        if (isalpha(ch2)) {
+            str2_count[ch2 - 'a']++; // Increase count for corresponding character in str2
+        }
     }
-    else {
-        printf("Invalid Character in First string");
+    for(int i=0;i<alpha_size;i++)
+    {
+        if(str1_count[i]!=str2_count[i])
+        {
+            return 0;
+        }
     }
-    
-    m[l] = '\0';
-    
-    return 0;
+    return 1;
+}
+
+int main() 
+{
+    char str1[100], str2[100];
+    printf("Enter the string 1:");
+    fgets(str1, sizeof(str1), stdin);
+    str1[strcspn(str1,"\n")]=0;
+    printf("Enter the string 2:");
+    fgets(str2,sizeof(str2),stdin);
+    str2[strcspn(str2,"\n")]=0;
+    if(anagram_check(str1,str2))
+    {
+        printf("The strings are anagrams of each other");
+    }
+    else
+    {
+        printf("The strings are not anagrams of each other");
+    }
 }
