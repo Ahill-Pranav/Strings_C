@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<string.h>
+#include<ctype.h>
 int main()
 {
     char *vowels="aeiouAEIOU";
@@ -9,7 +10,7 @@ int main()
     fgets(str,sizeof(str),stdin);
     for(int i=0;str[i]!='\0';i++)
     {
-        if ((str[i]>='a' && str[i]<='z') ||(str[i]>='A' && str[i]<='Z'))
+        if (isalpha(str[i]))
         {
             if(strchr(vowels,str[i]))
             {
