@@ -33,4 +33,4 @@ To compile and run any program:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/string-manipulation-practice.git
+   git clone https://github.com/yourusername/strings-c.git
