@@ -5,11 +5,11 @@ int main() {
     char str[100];
     printf("Enter the string: ");
     fgets(str, sizeof(str), stdin);
-
-    // Remove the newline character from fgets if it exists
     str[strcspn(str, "\n")] = '\0';
 
-    // Calculate the length of the input string
+    int i=0,start=strlen(str),end;
+
+
     int len = strlen(str);
     char rev_str[len+1]; 
 
@@ -19,6 +19,18 @@ int main() {
     rev_str[len] = '\0'; 
 
     printf("Reversed string: %s\n", rev_str);
+/*TO print letters alternatively*/
+    printf("\n");
+    for(int i=0;i<strlen(str);i+=2)
+    {
+        printf("%c",str[i]);
+    }   
+    printf("\n");
+    /*To print alternatively from the end*/
+    for (int i = strlen(str); i >0; i-=2)
+    {
+        printf("%c",str[i]);
+    }
     
     return 0;
 }
