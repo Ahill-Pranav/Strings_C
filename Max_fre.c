@@ -5,14 +5,11 @@
 int main()
 {
     char str[100];
-    int Char_ascii[ascii_size],max=0,ascii,min=-1;
+    int Char_ascii[ascii_size]={0},max=0,ascii,min=-1;
     printf("Enter the string:");
     fgets(str,sizeof(str),stdin);
     str[strcspn(str,"\n")]=0;
-    for(int i=0;i<ascii_size;i++)
-    {
-        Char_ascii[i]=0; //This block assigns the values for all the values to 0 so the frequency of the characters can be counted properly
-    }
+    
     for(int i=0;str[i]!='\0';i++)
     {
         ascii=(int)str[i];
