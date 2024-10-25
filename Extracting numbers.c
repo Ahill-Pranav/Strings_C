@@ -14,8 +14,8 @@ int main()
         {
             num=num*10+str[i-'0'];
         }
-        goto here;
+         printf("%d",num);
     }
-    here:
-    printf("%d",num);
+    
+   
 }

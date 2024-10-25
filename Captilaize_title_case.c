@@ -11,7 +11,7 @@ int main()
         {
             str[0]=toupper(str[0]);
         }
- for(int i =0;i<strlen(str);i++)
+ for(int i =1;i<strlen(str);i++)
  {
         if (str[i]==' ' && str[i+1]!='\0' && isalpha(str[i+1]))
         {
